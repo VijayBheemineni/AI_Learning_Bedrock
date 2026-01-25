@@ -71,6 +71,21 @@ for sentence, embedding in zip(sentences, embeddings):
 - More dimensions means more memory and slower search.
 - Similar sentences --> vectors move closer, Different sentences --> vectors move apart
 
+### Decoder
+
+Once text has been converted into vector representations (embeddings), the **Decoder** in the Transformer algorithm takes over to generate the output I'm looking for. This is where the magic happens - where numbers turn back into meaningful text.
+
+Here's how it works: The decoder looks at those vector representations and starts predicting what should come next, one word at a time. For each position, it calculates a **probability** for every possible word in its vocabulary. 
+
+For example, if I ask "What is the capital of France?", after processing my question, the decoder might predict:
+- "Paris" (85% probability)
+- "London" (5% probability)  
+- "Berlin" (3% probability)
+- "Rome" (2% probability)
+- ... and so on for thousands of other words
+
+The word with the highest probability - in this case "Paris" - is usually selected as the next word in the response. Then the process repeats, using the newly generated word as context to predict the next one, and so on until the complete answer is formed.
+
 ## Bedrock Foundational Models Settings
 
 ### LLM Model response Settings

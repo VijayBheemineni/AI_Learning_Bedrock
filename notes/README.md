@@ -2,7 +2,70 @@
 
 These are my personal notes and learnings as I explore AWS Bedrock. I'm documenting my journey to understand how to build generative AI applications using Amazon's fully managed service.
 
+## AI Concepts
 
+### Tokens
+
+When I send a prompt to an LLM, it doesn't read it the way I do. Instead, it breaks my text into smaller pieces called **tokens** using a Tokenizer service. Think of tokens as the building blocks that the model actually processes.
+
+A token can be a whole word, part of a word, or even just a punctuation mark. For example:
+
+- "Hello world!" might be broken into: `["Hello", " world", "!"]` (3 tokens)
+- "I'm learning AWS" could become: `["I", "'m", " learning", " AWS"]` (4 tokens)
+- "Tokenization" might split into: `["Token", "ization"]` (2 tokens)
+
+### Tokenizer
+
+A **tokenizer** is the tool that does the actual work of breaking text into tokens. It's like a translator that converts human language into a format the AI model can understand.
+
+Different models use different tokenizers, and they don't all work the same way. For instance, one tokenizer might treat "don't" as a single token, while another splits it into "don" and "'t". Some are better at handling specific languages or technical terms.
+
+### Embedding
+
+**Embedding** is the process of converting tokens or text into numbers that represent their meaning. Since AI models can't actually "understand" words the way I do, they need to work with numbers instead.
+
+Here's what happens: after my text is tokenized, each token gets transformed into a list of numbers called an embedding vector. These numbers capture the semantic meaning of the word - not just what it is, but what it means in context.
+
+For example:
+- The words "king" and "queen" would have similar embeddings because they're related concepts
+- "King" and "car" would have very different embeddings because they're unrelated
+- The word "bank" might have different embeddings depending on whether I'm talking about a river bank or a financial bank
+
+What's cool is that embeddings capture relationships. If I do math with these number representations, I can find patterns like: "king" - "man" + "woman" ≈ "queen".
+
+#### Why its called Embedding?
+Its called "Embedding" because we are "Embedding(placing)" text into a numerical space where meaning can be compared.
+
+```
+from sentence_transformers import SentenceTransformer
+
+
+# Load a small embedding model
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
+# Text we want to convert to numbers
+sentences = [
+    "I am learning AWS AI Service SageMaker",
+    "I am learning AWS AI Service BedRock",
+    "I am learning AWS AI Service BedRock AgentCore"
+]
+
+# Convert text to embeddings (vectors)
+embeddings = model.encode(sentences)
+print(embeddings)
+
+for sentence, embedding in zip(sentences, embeddings):
+    print(f"\nSentence: {sentence}")
+    print(f"Embedding length: {len(embedding)}")
+    print(f"First 5 numbers: {embedding[:5]}")
+```
+
+### Vectors
+- is the result of 'embedding' process. vector is a list of numbers. Its a 1 dimensional list.
+- Embeddings are stored as vectors.
+- Vector size is chosen by the model designer during training. Basically the goal is to capture the meaning without wasting compute.
+- More dimensions means more memory and slower search.
+- Similar sentences --> vectors move closer, Different sentences --> vectors move apart
 
 ## Bedrock Foundational Models Settings
 
@@ -43,3 +106,5 @@ Use examples related to AWS services.
 ```
 
 The model will now consistently respond like an AWS expert and keep explanations beginner-friendly — even if the user doesn’t repeat that instruction.
+
+

@@ -20,7 +20,7 @@ A **tokenizer** is the tool that does the actual work of breaking text into toke
 
 Different models use different tokenizers, and they don't all work the same way. For instance, one tokenizer might treat "don't" as a single token, while another splits it into "don" and "'t". Some are better at handling specific languages or technical terms.
 
-### Embedding
+### Embedding(Encoding)
 
 **Embedding** is the process of converting tokens or text into numbers that represent their meaning. Since AI models can't actually "understand" words the way I do, they need to work with numbers instead.
 
@@ -61,7 +61,11 @@ for sentence, embedding in zip(sentences, embeddings):
 ```
 
 ### Vectors
-- is the result of 'embedding' process. vector is a list of numbers. Its a 1 dimensional list.
+
+![Embedding Vector Visualization](../images/EmbeddingVector.webp)
+
+*Image source: [Word Embedding by Hari Om](https://medium.com/@hari4om/word-embedding-d816f643140)*
+- is the result of 'embedding' process. vector is a list of numbers. Its a 'n' dimensional list.
 - Embeddings are stored as vectors.
 - Vector size is chosen by the model designer during training. Basically the goal is to capture the meaning without wasting compute.
 - More dimensions means more memory and slower search.

@@ -29,3 +29,17 @@ In short: temperature controls *randomness*, top_k limits *how many words*, and 
 - **On Demand**
 - **Inference Profiles**
 - **Provisioned Throughput**
+
+
+### System Prompt
+
+In AWS Bedrock, a System Prompt is used to set the behavior, role, and rules for the Large Language Model (LLM) before it responds to user input.
+
+```
+# System Prompt Example
+You are an AWS AI expert.
+Explain concepts in simple language for beginners.
+Use examples related to AWS services.
+```
+
+The model will now consistently respond like an AWS expert and keep explanations beginner-friendly — even if the user doesn’t repeat that instruction.

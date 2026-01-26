@@ -143,7 +143,9 @@ Return:
 
 ## Bedrock Foundational Models Settings
 
-### LLM Model response Settings
+### Inference Settings
+
+#### Randomness and diversity
 **Temperature, top_k, and top_p** control how an AI model picks the *next word* when generating text.
 
 Suppose the model predicts the next word with probabilities:
@@ -159,8 +161,12 @@ Suppose the model predicts the next word with probabilities:
 
 In short: temperature controls *randomness*, top_k limits *how many words*, and top_p limits *how much total probability*.
 
-### Inference Settings
+#### Length
 
+
+### Inference Types
+- **Max Length** :- maximum number of tokens that the model can generate during the inference process.
+- **Stop Sequences** :- special tokens or sequences of tokens that signal the model to stop generating further output. 
 **TODO:** Read more about these options
 
 - **On Demand**

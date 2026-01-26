@@ -141,6 +141,30 @@ Return:
 
 ```
 
+### Prompt Engineering Techniques
+- **Zero Shot Prompting** :- We ask the model to do something without giving any examples.
+- **Few Shot Prompting** :- We give a few examples so the model learns the pattern.
+
+```
+Convert text to sentiment.
+
+Text: "I love AI"
+Sentiment: Positive
+
+Text: "This deployment failed"
+Sentiment: Negative
+
+Text: "The service is okay"
+Sentiment:
+```
+- **Chain of Thought(CoT)** :- We ask the model to think step by step before answering.
+
+```
+A server costs $10 per day.
+It runs for 7 days.
+Explain step by step how to calculate the total cost.
+```
+
 ## Bedrock Foundational Models Settings
 
 ### Inference Settings

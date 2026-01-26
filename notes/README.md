@@ -165,6 +165,20 @@ It runs for 7 days.
 Explain step by step how to calculate the total cost.
 ```
 
+#### Advanced Prompt Engineering Techniques
+**TODO:** Read more about these options
+
+- **Self Consistency**
+- **Tree of Thought**
+- **RAG** :- In this technique "We provide domain related data as 'context' to produce response based on the data and the prompt".
+
+![RAG Architecture](../images/RAG1.png)
+
+![RAG Knowledge Base](../images/RAGKnowledgeBase.png)
+- **ART(Automatic Reasoning and Tool Use)**
+- 
+
+
 ## Bedrock Foundational Models Settings
 
 ### Inference Settings

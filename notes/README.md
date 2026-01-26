@@ -86,6 +86,61 @@ For example, if I ask "What is the capital of France?", after processing my ques
 
 The word with the highest probability - in this case "Paris" - is usually selected as the next word in the response. Then the process repeats, using the newly generated word as context to predict the next one, and so on until the complete answer is formed.
 
+### Context
+
+**Context** is all the information the model has available when generating a response. It's like the model's working memory - everything it can "see" and use to understand what I'm asking and how to respond.
+
+The context includes:
+- My current prompt or question
+- The conversation history (previous messages in the chat)
+- Any system prompts that set the model's behavior
+- Additional information I provide (like documents or data)
+
+Think of it like having a conversation with someone. If I just say "What about that?", they need context from our earlier conversation to know what "that" refers to. Same with LLMs - the more relevant context they have, the better they can understand and respond.
+
+In AWS Bedrock, context is important because:
+- Models have a **context window** - a limit on how much text they can process at once (measured in tokens)
+- Everything in the context counts toward this limit and affects cost
+- If my conversation gets too long, older messages might get cut off
+- I can use techniques like RAG (Retrieval Augmented Generation) to provide relevant context without overwhelming the model
+
+Managing context well means I get better responses while keeping costs reasonable.
+
+
+## Prompt Engineering
+
+In prompt engineering, we structure prompts so the model knows:
+
+- **Who it is and what should the model do** (Instructions) :- Instructions tell the model how to behave and what task to perform.
+- **What information to use** (Context) :- Context gives background information the model needs to answer correctly.
+- **What task to perform** (Input Data) :- Input data is the actual content the model must process.
+- **How to respond** (Output Indicator) :- Output indicators define the format and structure of the response.
+
+```
+# Example Prompt Engineering
+Instructions:
+You are a restaurant order processor.
+Verify the order and calculate the total bill.
+
+Context:
+The restaurant charges 8% tax.
+Free delivery is available for orders above $30.
+
+Input Data:
+Order:
+- 2 Veg Burgers ($8 each)
+- 1 Fries ($5)
+- 1 Soda ($3)
+
+Output Indicator:
+Return:
+1. Itemized bill
+2. Tax amount
+3. Final total
+4. Delivery charge (if any)
+
+```
+
 ## Bedrock Foundational Models Settings
 
 ### LLM Model response Settings
@@ -125,5 +180,7 @@ Use examples related to AWS services.
 ```
 
 The model will now consistently respond like an AWS expert and keep explanations beginner-friendly — even if the user doesn’t repeat that instruction.
+
+
 
 

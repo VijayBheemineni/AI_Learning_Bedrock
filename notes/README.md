@@ -196,7 +196,7 @@ Explain step by step how to calculate the total cost.
 
 **TODO:** Need to write python code for each individual method.
 
-- ListFoundationModels :- Lists all foundational models available. [Code Example](../code/bedrock_listfoundational_models.py)
+- ListFoundationModels :- Lists all foundational models available. [Code Example](../code/bedrock/bedrock_listfoundational_models.py)
 - InvokeModel :- Invoke the specified model to run inference with the input provided.
 - InvokeModelWithResponseStream :- Same as above but response is returned in stream.
 - Converse :- is a higher level, standarized API for chatting with Bedrock models. Using this method we don't need to learn every model's custom request/response format. One common request/response formal for any Bedrock foundational models.
@@ -324,6 +324,7 @@ User question
 ```
 - **RAG** :-
 - **Memory(Conversations)** :-
+- **Indexex** :- 
 - **Tools and Agents** :-
 
 ### Why is LangChain required?

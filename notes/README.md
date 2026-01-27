@@ -178,6 +178,12 @@ Explain step by step how to calculate the total cost.
 - **ART(Automatic Reasoning and Tool Use)**
 - 
 
+## Bedrock Foundational Models
+- Some inference parameters like 'temperature', 'top_p', 'top_k' are common across all models but each model can provide additional inference parameters.
+
+### Bedrock Methods
+
+
 
 ## Bedrock Foundational Models Settings
 

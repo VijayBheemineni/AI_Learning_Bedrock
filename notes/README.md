@@ -21,6 +21,7 @@ A **tokenizer** is the tool that does the actual work of breaking text into toke
 Different models use different tokenizers, and they don't all work the same way. For instance, one tokenizer might treat "don't" as a single token, while another splits it into "don" and "'t". Some are better at handling specific languages or technical terms.
 
 ### Embedding(Encoding)
+![Embedding](../images/AWSEmbeddings.png)
 
 **Embedding** is the process of converting tokens or text into numbers that represent their meaning. Since AI models can't actually "understand" words the way I do, they need to work with numbers instead.
 
@@ -59,6 +60,10 @@ for sentence, embedding in zip(sentences, embeddings):
     print(f"Embedding length: {len(embedding)}")
     print(f"First 5 numbers: {embedding[:5]}")
 ```
+#### Bedrock Embedding Models
+- Amazon Titan Embeddings G1 :- Text model that can convert text to embeddings
+- Cohere Embed
+- Titan Multi-modal Embedding
 
 ### Vectors
 
@@ -70,6 +75,12 @@ for sentence, embedding in zip(sentences, embeddings):
 - Vector size is chosen by the model designer during training. Basically the goal is to capture the meaning without wasting compute.
 - More dimensions means more memory and slower search.
 - Similar sentences --> vectors move closer, Different sentences --> vectors move apart
+
+#### Vector Databases
+- Amazon OpenSearch Service
+- Amazon OpenSearch Serverless
+- Amazon RDS for PostgreSQL with 'pgvector' extension
+- Amazon Aurora PostgreSQL with 'pgvector' extension
 
 ### Decoder
 
@@ -257,8 +268,9 @@ So when I ask question like "Give me all critical security issues found with las
 
 ### How to input Enterprise Data into FM model
 **TODO:** Read and implement more about these options
+ First 'Enterprise' Data needs to be vectorized and stored in vector database. Once the user prompt is provided, we can search in vector database and provide the results as 'context' to FM model.
  
- There are ways to give foundation models access to enterprise data below are few.
+ There are ways to give foundation models access to enterprise data below are few. 
 
 **1. Retrieval Augmented Generation (RAG)**
 This is the most common approach. When I ask a question:
@@ -285,5 +297,5 @@ AWS Bedrock offers Knowledge Bases that automatically:
 - Retrieve relevant information when I query
 - Integrate seamlessly with foundation models
 
-This is essentially managed RAG - AWS handles the complexity for me.
+This is essentially managed RAG.
 

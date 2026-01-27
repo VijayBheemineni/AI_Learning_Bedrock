@@ -299,3 +299,43 @@ AWS Bedrock offers Knowledge Bases that automatically:
 
 This is essentially managed RAG.
 
+
+## Lang Chain
+![Bedrock LangChain Integration](../images/BedrockLangChain.png)
+
+### What is LangChain
+
+LangChain is an orchestration framework for LLM applications. It provides below features.
+
+- **Prompt Management** :- 
+```
+PromptTemplate(
+    input_variables=["context", "question"],
+    template="Use context: {context} to answer {question}"
+)
+```
+- **Chains** :- Multiple steps stitched together
+```
+User question
+ → Retriever
+ → Prompt template
+ → LLM
+ → Output parser
+```
+- **RAG** :-
+- **Memory(Conversations)** :-
+- **Tools and Agents** :-
+
+### Why is LangChain required?
+
+Direct FM calls are ideal for simple use cases. LangChain becomes valuable when building multi-step AI workflows like RAG, memory, and tool-based reasoning, where it reduces boilerplate and improves maintainability.
+
+We need to use LangChain when
+- We are building RAG
+- We need memory
+- We want prompt reuse
+- We want modular design
+- We expect the app to grow
+- We want model-agnostic code
+
+

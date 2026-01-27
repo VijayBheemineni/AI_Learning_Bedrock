@@ -237,6 +237,53 @@ Use examples related to AWS services.
 
 The model will now consistently respond like an AWS expert and keep explanations beginner-friendly — even if the user doesn’t repeat that instruction.
 
+## Building Generative AI Applications
 
 
+
+
+## Building Generative AI Applications
+
+### Why Foundation Models Hallucinate with Enterprise Data
+
+Foundation models are trained on massive amounts of public internet data - books, articles, websites, and more. But they've never seen:
+- My company's internal documents
+- Our product specifications
+- Customer data from our databases
+- Recent updates or changes in our systems
+- Proprietary information that's not publicly available
+
+So when I ask question like "Give me all critical security issues found with last run of Prowler tool", FM model will "hallucinate" because it doesn't know anything about this Prowler tool data. 
+
+### How to input Enterprise Data into FM model
+**TODO:** Read and implement more about these options
+ 
+ There are ways to give foundation models access to enterprise data below are few.
+
+**1. Retrieval Augmented Generation (RAG)**
+This is the most common approach. When I ask a question:
+- The system first searches my enterprise data (documents, databases, etc.)
+- It retrieves the most relevant information
+- It includes that information in the prompt as context
+- The model generates an answer based on the actual data provided
+
+**2. Fine-tuning**
+I can take a pre-trained model and continue training it on my specific data. This helps the model learn:
+- My company's terminology and jargon
+- Common patterns in our data
+- Domain-specific knowledge
+
+However, fine-tuning is more expensive and doesn't work well for frequently changing data.
+
+**3. Prompt Engineering with Context**
+Sometimes the simplest approach works - I just include the relevant data directly in my prompt:
+
+**4. Knowledge Bases (AWS Bedrock Feature)**
+AWS Bedrock offers Knowledge Bases that automatically:
+- Store my enterprise documents
+- Create embeddings for semantic search
+- Retrieve relevant information when I query
+- Integrate seamlessly with foundation models
+
+This is essentially managed RAG - AWS handles the complexity for me.
 

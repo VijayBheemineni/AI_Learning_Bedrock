@@ -248,10 +248,30 @@ Use examples related to AWS services.
 
 The model will now consistently respond like an AWS expert and keep explanations beginner-friendly — even if the user doesn’t repeat that instruction.
 
-## Building Generative AI Applications
+## Bedrock Knowledge Bases
+Bedrock Knowledge Bases allows us to implement RAG Workflow without having to build custom integrations to data sources and manage data flows.
 
+### How Knowledge Bases Works?
+- First we need our data to be breaken into "chunks" for efficient retrieval. Then the chunks are converted to "Embeddings" by "Embeddings" model and stored in "Vector" databases. Below parameters we need to select for this process.
+    - Text chunk size :- Small chunks faster retrival speed but lacks context. Big chunks slower retrival speed but high level of context.
+    - Embedding FM
+    - Vector Database
+- At runtime the "user" prompt is also converted to "Embedding" by same "Embedding" model during data processing. Then vector data based is queried to find chunks which are similar to the user's query.
 
+### Knowledge Bases DataSources
+- S3
 
+### Knowledge Bases API methods
+**TODO:** Read more about these options
+
+- Retrive :- queries knowledge base to fetch relevant infromation for a user request.
+- RetriveAndGenerate :- queries knowledge base to fetch relevant infromation for a user request and augment to FM prompt. Below are few configurations for 'RetriveAndGenerate'.
+    - Custom Prompting
+    - Search Type
+    - Maximum number of results
+    - Metadata and Filtering
+    - Query decomposition
+    - Guardrails
 
 ## Building Generative AI Applications
 
